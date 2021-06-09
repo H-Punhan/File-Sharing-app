@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><a href="/logout/">logout</a></p>
+ <h2>My files</h2>
+    {% for i in data %}
+
+        <p><a href="read/{{i.id}}">{{i.name}}</a></p>
+       
+
+    {% endfor %}
+
+    <div style="width:100%;padding:10px;">
+        <h2>Shared files with me</h2>
+        {% for i in shared %}
+
+        <a href="/read/{{i.shared_id}}/{{i.file_id}}">{{i.id}}</a>
+        {% endfor %}
+    </div>
+   
+</body>
+</html>
