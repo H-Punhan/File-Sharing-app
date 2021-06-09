@@ -10,7 +10,7 @@
     <h2>{{data.name}}</h2>
     <p>{{data.description}}</p>
     <p>{{data.file}} <p>
-        <form action="/add/comment/{{data.id}}" method="post">
+        <form action="/add/comment/shared/{{data.id}}" method="post">
             {% csrf_token %}
             <textarea name="comment" id="" cols="30" rows="10"></textarea>
             <button type="submit">post</button>

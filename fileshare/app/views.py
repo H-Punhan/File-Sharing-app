@@ -64,6 +64,7 @@ def add(request):
 def read(request,id):
     file=Files.objects.get(id=id,user_id=request.user.id)
     comments=Comments.objects.filter(file_id=id)
+    
     users=User.objects.all()
     
     return render(request,'read.html',{'data':file,'comments':comments,'user':users})
@@ -110,11 +111,11 @@ def addcomment(request,id):
 
 @login_required(login_url='/login/')
 def deletecomment(request,id,postid):
-    
+  
     data=Comments.objects.get(id=id,user_id=request.user.id).delete()
     
     
-    return redirect(read,postid)
+    return redirect(index)
 
 @login_required(login_url='/login/')
 def share(request,fileid):
@@ -153,12 +154,12 @@ def addcommentshared(request,id):
        
        data=Comments(user_id=request.user.id,file_id=id,comment=request.POST['comment'])
        data.save()
-       return redirect(readshared,id)
+       return redirect(index)
        
 
     
     
-    return redirect(readshared,id)
+    return redirect(index)
 
 
 
