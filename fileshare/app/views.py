@@ -137,7 +137,10 @@ def readshared(request,user,fileid):
 
     
     data={
-        "data":Files.objects.get(id=fileid)
+        
+        "data":Files.objects.get(id=fileid),
+        "comments":Comments.objects.all(),
+        "user":User.objects.all()
         
     }
 
